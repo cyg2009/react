@@ -1,7 +1,7 @@
 import express from 'express';   //ES6 syntax
 
 import React from 'react';
-import ReactDOM from 'react-dom/server';
+import ReactDOMServer from 'react-dom/server';
 import MyApp from './myapp.jsx';
 
 const app = express();
@@ -15,7 +15,9 @@ The root argument refers to the root directory from which the static assets are 
 */
 app.get('/', function(req, res){
     
-    var temp1 = ReactDOM.renderToString(<MyApp />);
+     var html = ReactDOMServer.renderToStaticMarkup(React.DOM.img());
+     console.log(html);
+    var temp1 = ReactDOMServer.renderToString(<MyApp />);
         console.log(temp1);    
     
     res.send(temp1);
